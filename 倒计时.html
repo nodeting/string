@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+<html>
+
+	<head>
+	<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body onload="time()">		
+		<div id="msg"></div>
+		<button id="btn">停止</button>
+		<button id="btn1">继续</button>
+		<button id="btn2">终止</button>
+		<script type="text/javascript">
+			var con = 20;
+			var tid;
+			function time() {
+				con--;
+				if (con < 0) {
+					con = 21;
+					return;
+				}
+				msg.innerHTML ='00 : 00' + ' : ' + con;
+				tid=setTimeout(time, 1000);				
+			}
+			var btn=document.getElementById('btn')
+			btn.onclick=function(){
+				clearTimeout(tid)
+			}
+			btn1.onclick=function(){
+				setTimeout(time, 1000);
+			}
+			btn2.onclick=function(){
+				clearTimeout(tid)
+				
+			}
+		</script>
+	</body>
